@@ -1,2 +1,2 @@
-# TIC
-Transformer-based Image Compression
+# Transformer-based Image Compression
+Codes will be released soon.

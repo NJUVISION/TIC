@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decoder-side Cross Resolution Synthesis for Video Compression Enhancement</title>
+    <script type="text/javascript" src="src/latexit.js"></script>
+    <script type="text/javascript">
+    LatexIT.add('p',true);
+    </script>
+
+    <!-- CSS includes -->
+    <link href="src/bootstrap.css" rel="stylesheet">
+    <link href="src/css.css" rel="stylesheet" type="text/css">
+    <link href="src/mystyle.css" rel="stylesheet">
+
+    </head>
+<body>
+
+    <div id="header" class="container-fluid">
+        <div class="row">
+            <h1>Decoder-side Cross Resolution Synthesis for Video Compression Enhancement</h1>
+            <div class="authors">
+                <a href="https://lumingzzz.github.io" target="_blank">Ming Lu</a> <sup>1</sup>, 
+                <a href="https://tongxyh.github.io", target="_blank">Tong Chen</a> <sup>1</sup>, 
+                <a href="mailto:daizhenyu@oppo.com", target="_blank">Zhenyu Dai</a> <sup>2</sup>, 
+                <a href="mailto:wangdong7@oppo.com", target="_blank">Dong Wang</a> <sup>2</sup>, 
+                <a href="mailto:DandanDing@hznu.edu.cn", target="_blank">Dandan Ding</a> <sup>3</sup>, 
+                <a href="https://vision.nju.edu.cn/fc/d3/c29470a457939/page.htm", target="_blank">Zhan Ma</a> <sup>1</sup>
+
+                <div class="affiliations">
+                    <sup>1</sup> Nanjing University &nbsp;&nbsp;&nbsp;&nbsp;
+                    <sup>2</sup> OPPO &nbsp;&nbsp;&nbsp;&nbsp;
+                    <sup>3</sup> Hangzhou Normal University &nbsp;&nbsp;&nbsp;&nbsp;  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="method">
+        <p style="text-align:center;">
+            <img src="src/pipeline.png" height="250">
+        </p>
+        <br>
+        <p>
+            <strong>CRS-based Video Compression Enhancement (VCE).</strong> &#8595 (in red) is for bicubic down-sampling; <strong>E</strong>, <strong>D</strong>, and <strong>B</strong> represent video encoder, decoder, and decoded picture buffer (DPB) respectively. The <strong>CRS</strong> Model is comprised of three modular components: a motion alignment and aggregation network (<strong>MAN</strong>), a texture compensation network (<strong>TCN</strong>), and a similarity-driven <strong>fusion</strong>.
+        </p>
+    </div>
+
+    <div class="container" id="abstractdiv">
+        <h2>Abstract</h2>
+        <p>
+            This paper proposes a decoder-side Cross Resolution Synthesis (CRS) module to pursue better compression efficiency beyond the latest Versatile Video Coding (VVC), where we encode intra frames at original high resolution (HR),  compress inter frames at a lower resolution (LR), and then super-resolve decoded LR inter frames with the help from preceding HR intra and neighboring LR inter frames.
+            For a LR inter frame, a motion alignment and aggregation network (MAN) is devised to produce temporally aggregated motion representation to best guarantee the temporal smoothness; Another texture compensation network (TCN) is utilized to generate texture representation from decoded HR intra frame for better augmenting spatial details; Finally, a similarity-driven fusion engine synthesizes motion and texture representations to upscale LR inter frames for the removal of compression and resolution re-sampling noises.
+            We enhance the VVC using proposed CRS, showing averaged 8.76% and 11.93% Bjøntegaard Delta Rate (BD-Rate) gains against the latest VVC anchor in Random Access (RA) and Low-delay P (LDP) settings respectively. In addition, experimental comparisons to the state-of-the-art super-resolution (SR) based VVC enhancement methods, and ablation studies are conducted to further report superior efficiency and generalization of the proposed algorithm. All materials will be made to public at \url{https://njuvision.github.io/CRS} for reproducible research.    
+        </p>
+    </div>
+    
+    <div class="container" id="exp_results">
+        <h2>Additional Experimental Results</h2>
+        <div id="comparison_source">
+            <div class="row" style="text-align: center;">
+                <h3>BD-rate and BD-PSNR of Proposed CRS against HEVC anchor (1-second GOP used in LDP common test).</h3>
+                <img src="src/bdbr_hevc.png">
+            </div>
+            <div class="row" style="text-align: center;">
+                <h3>Averaged BD-rate and BD-PSNR of Proposed CRS against HEVC anchor at various GOP size.</h3>
+                <img src="src/gop_study.png">
+            </div>
+            <div class="row" style="text-align: center;">
+                <h3>BD-rate of Proposed CRS against AV1 anchor using LDP profile.</h3>
+                <img src="src/bd_av1.png">
+            </div>
+            <div class="row" style="text-align: center;">
+                <h3>Averaged BD-rate of Proposed CRS against VVC anchor with VMAF as the distortion metric.</h3>
+                <img src="src/bd_vmaf_vvc.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="paperdiv">
+        <h2>Preprint Paper</h2>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <a href="https://github.com/NJUVISION/CRS" target="_blank"><p style="text-align: center;">
+                <img src="src/github_icon.png">
+                <br/>
+                Code (Github)
+            </p></a></div>
+            <div class="col-sm-3">
+                <a href="https://arxiv.org/abs/2012.00650" target="_blank"><p style="text-align: center;">
+                <img src="src/pdf_icon.png" height="120">
+                <br/>
+                Paper (arXiv)
+            </p></a></div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <a href="" target="_blank">
+            <div class="thumbs">
+            </div>
+        </a>
+        <!-- <div>
+            <pre class="citation">
+            @InProceedings{Huang_2021_CVPR,
+                author    = {Huang, Yan-Cheng and Chen, Yi-Hsin and Lu, Cheng-You and Wang, Hui-Po and Peng, Wen-Hsiao and Huang, Ching-Chun},
+                title     = {Video Rescaling Networks With Joint Optimization Strategies for Downscaling and Upscaling},
+                booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+                month     = {June},
+                year      = {2021},
+                pages     = {3527-3536}
+            }
+            </pre>
+        </div> -->
+    </div>
+
+
+    <div id=footer><br></div>
+    <!-- Javascript includes -->
+    <script src="src/jquery-3.5.1.js"></script>
+    <script src="src/bootstrap.js"></script>
+  
+
+</body></html>

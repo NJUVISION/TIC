@@ -1,2 +1,2 @@
 # Transformer-based Image Compression
-Codes will be released soon.
+Codes have been released in https://github.com/lumingzzz/TIC. The website will be finished soon.
